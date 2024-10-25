@@ -2,7 +2,7 @@
   "profiles": {
     "DeliveryServiceApp": {
       "commandName": "Project",
-      "commandLineArgs": "\"Коптево\" \"2024-10-21 23:22:22\" \"D:/logs.txt\" \"D:/final.csv\""
+      "commandLineArgs": "\"Коптево\" \"2024-10-21 23:22:22\" \"..\\..\\..\\Files\\Output\\logs.txt\" \"..\\..\\..\\Files\\Output\\final.csv\""
     }
   }
 }

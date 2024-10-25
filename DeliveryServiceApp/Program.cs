@@ -7,22 +7,22 @@ using DeliveryServiceApp.Services.Interfaces;
 using DeliveryServiceApp.Validates.Interfaces;
 using DeliveryServiceApp.Validates;
 using DeliveryServiceApp.Repositories;
-using Serilog.Core;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
 namespace DeliveryServiceApp;
 
 public class Program
 {
-    const string ORDER_PATH = @"C:\Users\najmi\Desktop\Project\DeliveryService\DeliveryServiceApp\DeliveryServiceApp\Files\Orders.csv";
-
     static async Task Main(string[] args)
     {
+        var configuration = Host.CreateApplicationBuilder(args).Build().Services.GetRequiredService<IConfiguration>();
 
         var validationServiceCollection = new ServiceCollection()
             .AddSingleton<IInputValidator, InputValidator>();
 
         var inputValidator = validationServiceCollection.BuildServiceProvider().GetService<IInputValidator>();
-        var config = await inputValidator.ValidateAsync(args);
+        var config = await inputValidator!.ValidateAsync(args);
 
         var serviceProvider = new ServiceCollection()
             .AddLogging(config.DeliveryLogPath)
@@ -32,15 +32,15 @@ public class Program
             .AddSingleton<IOrderService, OrderService>()
             .BuildServiceProvider();
 
-        var logger = serviceProvider.GetService<Microsoft.Extensions.Logging.ILogger<Program>>();
+        var logger = serviceProvider.GetService<ILogger<Program>>();
 
         try
         {
             var orderRepository = serviceProvider.GetService<IOrderRepository>();
             var orderService = serviceProvider.GetService<IOrderService>();
 
-            var orders = await orderRepository.GetOrdersAsync(ORDER_PATH);
-            var filteredOrders = await orderService.FilterOrdersAsync(orders, config.District, config.FirstDeliveryTime);
+            var orders = await orderRepository!.GetOrdersAsync(configuration.GetValue<string>("orders")!);
+            var filteredOrders = await orderService!.FilterOrdersAsync(orders, config.District, config.FirstDeliveryTime);
 
             if (filteredOrders.Any())
                 Console.WriteLine(filteredOrders.PrintOrders());
@@ -50,7 +50,7 @@ public class Program
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Произошла ошибка во время выполнения приложения.");
+            logger!.LogError(ex, "Произошла ошибка во время выполнения приложения.");
         }
     }
 }
