@@ -5,4 +5,4 @@
 <h3>
   DeliveryServiceApp "Район доставки" "Начальное время доставки (формат yyyy-MM-dd HH:mm:ss)" "Путь к файлу логов" "Путь к файлу отфильтрованных заказов"
 </h3>
-<p>Файл с заказами находится в каталоге files. Путь: <span style="color: blue;">"..\\..\\..\\Files\\Orders.csv"</span></p>
+<p>Файл с заказами находится внутри проекта в каталоге files. Путь: <span style="color: blue;">"..\\..\\..\\Files\\Orders.csv"</span></p>
