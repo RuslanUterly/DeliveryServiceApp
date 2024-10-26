@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryServiceApp", "DeliveryServiceApp\DeliveryServiceApp.csproj", "{608D5969-B087-4FC8-A508-45A50572FF80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliveryServiceApp", "DeliveryServiceApp\DeliveryServiceApp.csproj", "{608D5969-B087-4FC8-A508-45A50572FF80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryServiceTests", "DeliveryServiceTests\DeliveryServiceTests.csproj", "{1AE2E481-4A1A-495E-92EC-60038E5C579F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{608D5969-B087-4FC8-A508-45A50572FF80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{608D5969-B087-4FC8-A508-45A50572FF80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{608D5969-B087-4FC8-A508-45A50572FF80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AE2E481-4A1A-495E-92EC-60038E5C579F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AE2E481-4A1A-495E-92EC-60038E5C579F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AE2E481-4A1A-495E-92EC-60038E5C579F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AE2E481-4A1A-495E-92EC-60038E5C579F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
